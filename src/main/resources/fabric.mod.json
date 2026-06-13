@@ -1,0 +1,48 @@
+{
+    "schemaVersion": 1,
+    "id": "universal_nvidium",
+    "version": "${version}",
+    "name": "Universal Nvidium",
+    "description": "Multi-architecture NVIDIA rendering backend for Sodium. Supports Pascal (GTX 1050 Ti) through Ada Lovelace via mesh shaders, indirect multi-draw, and bindless textures.",
+    "authors": [
+        "UniversalNvidium Team"
+    ],
+    "contributors": [
+        "Based on MCRcortex/nvidium (LGPL-3.0)"
+    ],
+    "contact": {
+        "homepage": "https://github.com/user/universal-nvidium",
+        "sources": "https://github.com/user/universal-nvidium",
+        "issues": "https://github.com/user/universal-nvidium/issues"
+    },
+    "license": "LGPL-3.0-only",
+    "icon": "assets/universal_nvidium/icon.png",
+    "environment": "client",
+    "entrypoints": {
+        "client": [
+            "io.github.user.universalnvidium.UniversalNvidiumMod"
+        ],
+        "modmenu": [
+            "io.github.user.universalnvidium.config.UniversalNvidiumConfig"
+        ]
+    },
+    "mixins": [
+        "universal_nvidium.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=${loader_version}",
+        "minecraft": ["${minecraft_version}"],
+        "java": ">=21",
+        "sodium": ["=0.8.4"],
+        "fabric-api": ">=0.141.0"
+    },
+    "custom": {
+        "modmenu": {
+            "parent": "sodium",
+            "links": {
+                "modmenu.discord": "https://discord.gg/universalnvidium"
+            },
+            "update_checker": true
+        }
+    }
+}

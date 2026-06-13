@@ -1,0 +1,52 @@
+#version 430 core
+#extension GL_ARB_compute_shader : require
+#extension GL_ARB_shader_storage_buffer_object : require
+
+layout(local_size_x = 64, local_size_y = 1, local_size_z = 1) in;
+
+struct Plane {
+    vec4 equation;
+};
+
+struct BoundingBox {
+    vec4 minData;
+    vec2 maxData;
+    uint padding1;
+    uint padding2;
+};
+
+layout(std430, binding = 0) readonly buffer FrustumBuffer {
+    Plane frustumPlanes[6];
+};
+
+layout(std430, binding = 1) readonly buffer BBoxBuffer {
+    BoundingBox bboxes[];
+};
+
+layout(std430, binding = 2) buffer OutputBuffer {
+    int visible[];
+};
+
+bool isBboxVisible(vec3 bmin, vec3 bmax) {
+    for (int i = 0; i < 6; i++) {
+        Plane p = frustumPlanes[i];
+        vec3 positive = vec3(
+            p.equation.x > 0.0 ? bmax.x : bmin.x,
+            p.equation.y > 0.0 ? bmax.y : bmin.y,
+            p.equation.z > 0.0 ? bmax.z : bmin.z
+        );
+        float d = dot(p.equation.xyz, positive) + p.equation.w;
+        if (d < 0.0) return false;
+    }
+    return true;
+}
+
+void main() {
+    uint idx = gl_GlobalInvocationID.x;
+    if (idx >= bboxes.length()) return;
+
+    vec3 bmin = bboxes[idx].minData.xyz;
+    vec3 bmax = vec3(bboxes[idx].maxData.x, bboxes[idx].maxData.y, bboxes[idx].minData.w);
+
+    visible[idx] = isBboxVisible(bmin, bmax) ? 1 : 0;
+}

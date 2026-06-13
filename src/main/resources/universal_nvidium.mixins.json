@@ -1,0 +1,18 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "io.github.user.universalnvidium.mixin",
+    "compatibilityLevel": "JAVA_21",
+    "client": [
+        "MixinSodiumWorldRenderer",
+        "MixinRenderSectionManager",
+        "MixinRenderRegionManager",
+        "MixinRenderSection",
+        "SodiumWorldRendererAccessor",
+        "BuilderTaskOutputAccessor"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "refmap": "universal_nvidium.refmap.json"
+}
