@@ -1,4 +1,4 @@
-package io.github.user.universalnvidium.render.buffer;
+package io.github.user.evedium.render.buffer;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import org.lwjgl.opengl.GL44;

@@ -1,16 +1,16 @@
-package io.github.user.universalnvidium;
+package io.github.user.evedium;
 
-import io.github.user.universalnvidium.gpu.GPUScanner;
-import io.github.user.universalnvidium.gpu.GPUArchitecture;
-import io.github.user.universalnvidium.render.backend.PascalRenderBackend;
+import io.github.user.evedium.gpu.GPUScanner;
+import io.github.user.evedium.gpu.GPUArchitecture;
+import io.github.user.evedium.render.backend.PascalRenderBackend;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientLifecycleEvents;
 import net.minecraft.client.MinecraftClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class UniversalNvidiumMod implements ClientModInitializer {
-    public static final String MOD_ID = "universal_nvidium";
+public class EvediumMod implements ClientModInitializer {
+    public static final String MOD_ID = "evedium";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     private static GPUArchitecture currentArchitecture;
@@ -18,7 +18,7 @@ public class UniversalNvidiumMod implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        LOGGER.info("Universal Nvidium initializing...");
+        LOGGER.info("Evedium initializing...");
 
         ClientLifecycleEvents.CLIENT_STARTED.register(client -> {
             detectGPU(client);
@@ -43,7 +43,7 @@ public class UniversalNvidiumMod implements ClientModInitializer {
 
         if (currentArchitecture == GPUArchitecture.UNKNOWN ||
             currentArchitecture == GPUArchitecture.UNSUPPORTED) {
-            LOGGER.warn("Universal Nvidium: Unsupported GPU detected. Disabling.");
+            LOGGER.warn("Evedium: Unsupported GPU detected. Disabling.");
             active = false;
             return;
         }
@@ -65,7 +65,7 @@ public class UniversalNvidiumMod implements ClientModInitializer {
             PascalRenderBackend.getInstance().close();
         }
         active = false;
-        LOGGER.info("Universal Nvidium shut down");
+        LOGGER.info("Evedium shut down");
     }
 
     public static boolean isActive() {

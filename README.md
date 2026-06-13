@@ -1,2 +1,2 @@
 # Evedium
-Universal Nvidium - Render engine for Pascal GPUs
+GPU-accelerated render engine for Pascal GPUs (GTX 1050 Ti) - Sodium addon

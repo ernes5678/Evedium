@@ -1,7 +1,7 @@
-package io.github.user.universalnvidium.render.culling;
+package io.github.user.evedium.render.culling;
 
 import com.mojang.blaze3d.platform.GlStateManager;
-import io.github.user.universalnvidium.render.buffer.PersistentBuffer;
+import io.github.user.evedium.render.buffer.PersistentBuffer;
 import org.joml.FrustumIntersection;
 import org.joml.Matrix4f;
 import org.joml.Vector3f;

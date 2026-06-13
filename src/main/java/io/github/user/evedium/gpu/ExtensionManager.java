@@ -1,4 +1,4 @@
-package io.github.user.universalnvidium.gpu;
+package io.github.user.evedium.gpu;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import org.slf4j.Logger;

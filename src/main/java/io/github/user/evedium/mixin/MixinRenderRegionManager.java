@@ -1,7 +1,7 @@
-package io.github.user.universalnvidium.mixin;
+package io.github.user.evedium.mixin;
 
-import io.github.user.universalnvidium.UniversalNvidiumMod;
-import io.github.user.universalnvidium.render.backend.PascalRenderBackend;
+import io.github.user.evedium.EvediumMod;
+import io.github.user.evedium.render.backend.PascalRenderBackend;
 import net.caffeinemc.mods.sodium.client.gl.device.CommandList;
 import net.caffeinemc.mods.sodium.client.render.chunk.compile.BuilderTaskOutput;
 import net.caffeinemc.mods.sodium.client.render.chunk.region.RenderRegion;
@@ -19,8 +19,8 @@ public class MixinRenderRegionManager {
 
     @Inject(method = "uploadResults(Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;Ljava/util/Collection;)V", at = @At("HEAD"), remap = false)
     private void onUploadResults(CommandList commandList, Collection<BuilderTaskOutput> results, CallbackInfo ci) {
-        if (!UniversalNvidiumMod.isActive()) return;
-        if (!UniversalNvidiumMod.getArchitecture().supportsMeshShaders()) {
+        if (!EvediumMod.isActive()) return;
+        if (!EvediumMod.getArchitecture().supportsMeshShaders()) {
             for (BuilderTaskOutput output : results) {
                 if (output != null && !output.isDisposed()) {
                     PascalRenderBackend.getInstance().onChunkUpload(output);
@@ -29,10 +29,10 @@ public class MixinRenderRegionManager {
         }
     }
 
-    @Inject(method = "uploadResults(Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion;Ljava/util/Collection;)V", at = @("HEAD"), remap = false)
+    @Inject(method = "uploadResults(Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion;Ljava/util/Collection;)V", at = @At("HEAD"), remap = false)
     private void onUploadResults(CommandList commandList, RenderRegion region, Collection<BuilderTaskOutput> results, CallbackInfo ci) {
-        if (!UniversalNvidiumMod.isActive()) return;
-        if (!UniversalNvidiumMod.getArchitecture().supportsMeshShaders()) {
+        if (!EvediumMod.isActive()) return;
+        if (!EvediumMod.getArchitecture().supportsMeshShaders()) {
             for (BuilderTaskOutput output : results) {
                 if (output != null && !output.isDisposed()) {
                     PascalRenderBackend.getInstance().onChunkUpload(output);

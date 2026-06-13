@@ -1,4 +1,4 @@
-package io.github.user.universalnvidium.gpu;
+package io.github.user.evedium.gpu;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

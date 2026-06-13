@@ -1,4 +1,4 @@
-package io.github.user.universalnvidium.gpu;
+package io.github.user.evedium.gpu;
 
 public enum GPUArchitecture {
     UNKNOWN("Unknown GPU", -1),

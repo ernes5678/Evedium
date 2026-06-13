@@ -1,9 +1,9 @@
-package io.github.user.universalnvidium.render.backend;
+package io.github.user.evedium.render.backend;
 
-import io.github.user.universalnvidium.mixin.BuilderTaskOutputAccessor;
-import io.github.user.universalnvidium.render.buffer.BindlessManager;
-import io.github.user.universalnvidium.render.buffer.IndirectCommandBuffer;
-import io.github.user.universalnvidium.render.shader.ShaderManager;
+import io.github.user.evedium.mixin.BuilderTaskOutputAccessor;
+import io.github.user.evedium.render.buffer.BindlessManager;
+import io.github.user.evedium.render.buffer.IndirectCommandBuffer;
+import io.github.user.evedium.render.shader.ShaderManager;
 import net.caffeinemc.mods.sodium.client.render.chunk.RenderSection;
 import net.caffeinemc.mods.sodium.client.render.chunk.compile.BuilderTaskOutput;
 import net.caffeinemc.mods.sodium.client.render.chunk.lists.SortedRenderLists;

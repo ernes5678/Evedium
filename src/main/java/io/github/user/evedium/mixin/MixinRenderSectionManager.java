@@ -1,7 +1,7 @@
-package io.github.user.universalnvidium.mixin;
+package io.github.user.evedium.mixin;
 
-import io.github.user.universalnvidium.UniversalNvidiumMod;
-import io.github.user.universalnvidium.render.backend.PascalRenderBackend;
+import io.github.user.evedium.EvediumMod;
+import io.github.user.evedium.render.backend.PascalRenderBackend;
 import net.caffeinemc.mods.sodium.client.render.chunk.lists.SortedRenderLists;
 import net.caffeinemc.mods.sodium.client.render.chunk.terrain.TerrainRenderPass;
 import org.spongepowered.asm.mixin.Mixin;
@@ -16,23 +16,23 @@ public class MixinRenderSectionManager {
 
     @Inject(method = "renderLayer", at = @At("HEAD"), remap = false)
     private void onRenderLayer(TerrainRenderPass pass, SortedRenderLists renderLists, int frame, CallbackInfo ci) {
-        if (!UniversalNvidiumMod.isActive()) return;
-        if (!UniversalNvidiumMod.getArchitecture().supportsMeshShaders()) {
+        if (!EvediumMod.isActive()) return;
+        if (!EvediumMod.getArchitecture().supportsMeshShaders()) {
             PascalRenderBackend.getInstance().onRenderLayer(pass, renderLists, frame);
         }
     }
 
     @Inject(method = "renderFrame", at = @At("HEAD"), remap = false)
     private void onRenderFrame(int frame, boolean isTranslucent, CallbackInfo ci) {
-        if (!UniversalNvidiumMod.isActive()) return;
-        if (!UniversalNvidiumMod.getArchitecture().supportsMeshShaders()) {
+        if (!EvediumMod.isActive()) return;
+        if (!EvediumMod.getArchitecture().supportsMeshShaders()) {
             PascalRenderBackend.getInstance().onRenderFrame(frame, isTranslucent);
         }
     }
 
     @Inject(method = "destroy", at = @At("HEAD"), remap = false)
     private void onDestroy(CallbackInfo ci) {
-        if (!UniversalNvidiumMod.isActive()) return;
+        if (!EvediumMod.isActive()) return;
         PascalRenderBackend.getInstance().close();
     }
 }

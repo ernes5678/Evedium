@@ -1,4 +1,4 @@
-package io.github.user.universalnvidium.render.shader;
+package io.github.user.evedium.render.shader;
 
 import com.mojang.blaze3d.platform.GlStateManager;
 import org.lwjgl.opengl.GL44;
@@ -155,7 +155,7 @@ public class ShaderManager implements AutoCloseable {
 
     private String readFile(String path) {
         try {
-            String fullPath = "assets/universal_nvidium/shaders/" + path;
+            String fullPath = "assets/evedium/shaders/" + path;
             InputStream stream = getClass().getClassLoader().getResourceAsStream(fullPath);
             if (stream == null) {
                 LOGGER.error("Shader not found: {}", fullPath);

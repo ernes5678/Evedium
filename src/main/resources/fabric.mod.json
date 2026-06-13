@@ -1,33 +1,33 @@
 {
     "schemaVersion": 1,
-    "id": "universal_nvidium",
+    "id": "evedium",
     "version": "${version}",
-    "name": "Universal Nvidium",
+    "name": "Evedium",
     "description": "Multi-architecture NVIDIA rendering backend for Sodium. Supports Pascal (GTX 1050 Ti) through Ada Lovelace via mesh shaders, indirect multi-draw, and bindless textures.",
     "authors": [
-        "UniversalNvidium Team"
+        "Alejandro Rodriguez Castillo"
     ],
     "contributors": [
         "Based on MCRcortex/nvidium (LGPL-3.0)"
     ],
     "contact": {
-        "homepage": "https://github.com/user/universal-nvidium",
-        "sources": "https://github.com/user/universal-nvidium",
-        "issues": "https://github.com/user/universal-nvidium/issues"
+        "homepage": "https://github.com/ernes5678/Evedium",
+        "sources": "https://github.com/ernes5678/Evedium",
+        "issues": "https://github.com/ernes5678/Evedium/issues"
     },
     "license": "LGPL-3.0-only",
-    "icon": "assets/universal_nvidium/icon.png",
+    "icon": "assets/evedium/icon.png",
     "environment": "client",
     "entrypoints": {
         "client": [
-            "io.github.user.universalnvidium.UniversalNvidiumMod"
+            "io.github.user.evedium.EvediumMod"
         ],
         "modmenu": [
-            "io.github.user.universalnvidium.config.UniversalNvidiumConfig"
+            "io.github.user.evedium.config.EvediumConfig"
         ]
     },
     "mixins": [
-        "universal_nvidium.mixins.json"
+        "evedium.mixins.json"
     ],
     "depends": {
         "fabricloader": ">=${loader_version}",
@@ -40,7 +40,7 @@
         "modmenu": {
             "parent": "sodium",
             "links": {
-                "modmenu.discord": "https://discord.gg/universalnvidium"
+                "modmenu.discord": "https://discord.gg/evedium"
             },
             "update_checker": true
         }

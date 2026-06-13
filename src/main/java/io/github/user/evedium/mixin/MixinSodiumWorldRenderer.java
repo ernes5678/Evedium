@@ -1,7 +1,7 @@
-package io.github.user.universalnvidium.mixin;
+package io.github.user.evedium.mixin;
 
-import io.github.user.universalnvidium.UniversalNvidiumMod;
-import io.github.user.universalnvidium.render.backend.PascalRenderBackend;
+import io.github.user.evedium.EvediumMod;
+import io.github.user.evedium.render.backend.PascalRenderBackend;
 import net.caffeinemc.mods.sodium.client.render.viewport.Viewport;
 import net.caffeinemc.mods.sodium.client.render.chunk.ChunkRenderMatrices;
 import net.caffeinemc.mods.sodium.client.util.FogParameters;
@@ -17,14 +17,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(targets = "net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer", remap = false)
 public class MixinSodiumWorldRenderer {
     @Unique
-    private boolean universalNvidium$initialized = false;
+    private boolean evedium$initialized = false;
 
     @Inject(method = "setupTerrain", at = @At("HEAD"), remap = false)
     private void onSetupTerrain(Camera camera, Viewport viewport, FogParameters fogParameters,
                                 boolean spectator, boolean booleanParam, ChunkRenderMatrices matrices,
                                 CallbackInfo ci) {
-        if (!UniversalNvidiumMod.isActive()) return;
-        if (!UniversalNvidiumMod.getArchitecture().supportsMeshShaders()) {
+        if (!EvediumMod.isActive()) return;
+        if (!EvediumMod.getArchitecture().supportsMeshShaders()) {
             initBackend();
         }
     }
@@ -33,13 +33,13 @@ public class MixinSodiumWorldRenderer {
     private void onDestroy(CallbackInfo ci) {
         if (!UniversalNvidiumMod.isActive()) return;
         PascalRenderBackend.getInstance().close();
-        universalNvidium$initialized = false;
+        evedium$initialized = false;
     }
 
     @Unique
     private void initBackend() {
-        if (universalNvidium$initialized) return;
-        universalNvidium$initialized = true;
+        if (evedium$initialized) return;
+        evedium$initialized = true;
         PascalRenderBackend.getInstance().init();
     }
 }

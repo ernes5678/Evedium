@@ -1,7 +1,7 @@
 {
     "required": true,
     "minVersion": "0.8",
-    "package": "io.github.user.universalnvidium.mixin",
+    "package": "io.github.user.evedium.mixin",
     "compatibilityLevel": "JAVA_21",
     "client": [
         "MixinSodiumWorldRenderer",
@@ -14,5 +14,5 @@
     "injectors": {
         "defaultRequire": 1
     },
-    "refmap": "universal_nvidium.refmap.json"
+    "refmap": "evedium.refmap.json"
 }

@@ -1,4 +1,4 @@
-package io.github.user.universalnvidium.mixin;
+package io.github.user.evedium.mixin;
 
 import net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager;
 import org.spongepowered.asm.mixin.Mixin;

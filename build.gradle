@@ -12,7 +12,7 @@ base {
 
 loom {
     mixin {
-        defaultRefmapName = "universal_nvidium.refmap.json"
+        defaultRefmapName = "evedium.refmap.json"
     }
 }
 

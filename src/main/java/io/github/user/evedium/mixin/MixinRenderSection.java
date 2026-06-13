@@ -1,7 +1,7 @@
-package io.github.user.universalnvidium.mixin;
+package io.github.user.evedium.mixin;
 
-import io.github.user.universalnvidium.UniversalNvidiumMod;
-import io.github.user.universalnvidium.render.backend.PascalRenderBackend;
+import io.github.user.evedium.EvediumMod;
+import io.github.user.evedium.render.backend.PascalRenderBackend;
 import net.caffeinemc.mods.sodium.client.render.chunk.RenderSection;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Pseudo;
@@ -15,8 +15,8 @@ public class MixinRenderSection {
 
     @Inject(method = "delete", at = @At("HEAD"), remap = false)
     private void onDelete(CallbackInfo ci) {
-        if (!UniversalNvidiumMod.isActive()) return;
-        if (!UniversalNvidiumMod.getArchitecture().supportsMeshShaders()) {
+        if (!EvediumMod.isActive()) return;
+        if (!EvediumMod.getArchitecture().supportsMeshShaders()) {
             PascalRenderBackend.getInstance().onSectionDelete((RenderSection) (Object) this);
         }
     }
